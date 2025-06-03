@@ -3,7 +3,12 @@ local Lexer  = require("lexer")
 local Parser = require("parser")
 
 local function run(source)
-    local vm = VM:new(source)
+    local vm = VM:new()
+    local lexer = Lexer:new(source)
+    local parser = Parser:new(vm, lexer.tokens)
+
+    if not lexer:scan() then return end
+    if not parser:parse_expression() then return end
     vm:interpret()
 end
 
