@@ -1,8 +1,8 @@
-local vm = {}
-vm.__index = vm
-setmetatable(vm, vm)
+local VM = {}
+VM.__index = VM
+setmetatable(VM, VM)
 
-function vm:new(source)
+function VM:new(source)
     local obj = {}
     setmetatable(obj, self)
 
@@ -13,11 +13,11 @@ function vm:new(source)
     return obj
 end
 
-function vm:interpret()
-    print("todo: vm:interpret()")
+function VM:interpret()
+    print("todo: VM:interpret()")
 end
 
-function vm:debug()
+function VM:debug()
 end
 
-return vm
+return VM
